@@ -87,9 +87,9 @@ function capicua(numero) {
   var numero1 = numero.toString();
 
   if (numero1 === numero1.split("").reverse().join("")) {
-    return "Es capicua"
+    return "Es capicua";
   } else {
-    return "No es capicua"
+    return "No es capicua";
   }
 }
 
@@ -97,6 +97,16 @@ function deleteAbc(string) {
   // Tu tarea es eliminar las letras "a", "b" y "c" del string recibido.
   // Retorna el string sin estas letras.
   // Tu código:
+  var nuevoArr = [];
+  var arr = string.split("");
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === "a" || arr[i] === "b" || arr[i] === "c") {
+      continue;
+    } else {
+      nuevoArr.push(arr[i]);
+    }
+  }
+  return nuevoArr.join("");
 }
 
 function sortArray(arrayOfStrings) {
@@ -105,6 +115,18 @@ function sortArray(arrayOfStrings) {
   // de la longitud de cada string.
   // [EJEMPLO]: ["You", "are", "beautiful", "looking"]  ---> [“You", "are", "looking", "beautiful"]
   // Tu código:
+  var arr = [];
+  var retornoNew = [];
+  for (let m = 0; m < arrayOfStrings.length; m++) {
+    arr.push({ name: arrayOfStrings[m], value: arrayOfStrings[m].length });
+  }
+
+  arr.sort((a, b) => a.value - b.value);
+
+  for (let j = 0; j < arr.length; j++) {
+    retornoNew.push(arr[j].name);
+  }
+  return retornoNew;
 }
 
 function buscoInterseccion(array1, array2) {
@@ -114,6 +136,20 @@ function buscoInterseccion(array1, array2) {
   // Si no tienen elementos en común, retornar un arreglo vacío.
   // [PISTA]: los arreglos no necesariamente tienen la misma longitud.
   // Tu código:
+  var newArr = [];
+  var def = [];
+  for (let i = 0; i < array1.length; i++) {
+    for (let j = 0; j < array2.length; j++) {
+      if ((array1[i] = array2[j] && !newArr.includes(array1[i]))) {
+        newArr.push(array1[i]);
+      }
+    }
+  }
+  if (newArr.length > 0) {
+    return newArr;
+  } else {
+    return def;
+  }
 }
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
