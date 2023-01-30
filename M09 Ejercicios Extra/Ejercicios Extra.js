@@ -208,3 +208,164 @@ function stringMasLarga(strings) {
 // No modifiques nada debajo de esta linea //
 
 module.exports = stringMasLarga
+
+/* 
+  Importante: 
+  No modificar ni el nombre ni los argumetos que reciben las funciones, sólo deben escribir
+  código dentro de las funciones ya definidas. 
+  No comentar la funcion 
+*/
+function buscarAmigo(amigos, nombre) {
+  // La funcion llamada 'buscarAmigo' recibe como argumento un array llamado 'amigos' que contiene
+  // en cada posición del arreglo un objeto que tiene como propiedades 'nombre' y 'edad'. También
+  // recibe un string llamado 'nombre'.
+  // Debe devolver el objeto cuya propiedad 'nombre' coincida con el string 'nombre' recibido por argumento.
+  // Ej:
+  //  var amigos = [{ nombre: 'toni', edad: 33 } , { nombre: 'Emi', edad: 25 }];
+  //  buscarAmigo(amigos, 'toni') debe devolver { nombre: 'toni', edad: 33 };
+
+  // Tu código aca:
+  for(let i=0; i<amigos.length;i++){
+if(amigos[i].nombre === nombre){
+  return amigos[i]
+}
+
+  }
+  
+}
+
+// No modifiques nada debajo de esta linea //
+
+module.exports = buscarAmigo
+
+function numeroSimetrico(num) {
+  // La funcion llamada 'numeroSimetrico' recibe como argumento un numero entero 'num'
+  // Esta devuelve true o false dependiendo de si el número es simétrico o no. 
+  // Un número es simétrico cuando es igual a su reverso.
+  // Ej:
+  // numeroSimetrico(11711) devuelve true
+
+  // Tu código:
+  var numero1 = num.toString();
+
+  if (numero1 === numero1.split("").reverse().join("")) {
+    return true;
+  } else {
+    return false;
+  }
+
+
+}
+
+function pluck(array, propiedad) {
+  // La función llamada 'pluck' recibe como argumento un array de objetos llamado 'array' y el nombre de una
+  // propiedad.
+  // La función debe devolver un nuevo arreglo con solo los valores dentro de la propiedad recibida
+  // Ej:
+  // var productos = [{ name: 'TV LCD', price: 100}, { name: 'Computadora', price: 500 }]
+  // productos.pluck(productos, 'name') debería devolver ['TV LCD', 'Computadora']
+  // Pista: es una buena oportunidad para usar map.
+
+  // Tu código acá:
+  var arr = array.map(function(element){
+    return element[propiedad];
+  })
+return arr
+
+}
+
+/* 
+  Importante: 
+  No modificar ni el nombre ni los argumetos que reciben las funciones, sólo deben escribir
+  código dentro de las funciones ya definidas. 
+  No comentar la funcion 
+*/
+function crearClasePersona() {
+  class Persona {
+    constructor(nombre, edad, hobbies, amigos) {
+      // El constructor de la clase Persona recibe nombre (string), edad (integer), hobbies (array de strings), amigos (array de objetos)
+      // Inicializar las propiedades de la persona con los valores recibidos como argumento
+
+      // Tu código aca:
+      this.nombre = nombre;
+      this.edad= edad;
+      this.hobbies=hobbies;
+      this.amigos=amigos;
+
+    }
+
+    addFriend(nombre, edad) {
+      // El método 'addFriend' recibe un string 'nombre' y un entero 'edad' y debe agregar un objeto:
+      // { nombre: nombre, edad: edad} al arreglo de amigos de la persona.
+      // No debe retornar nada.
+
+      // Tu código aca:
+      this.amigos.push({'nombre' : nombre, 'edad' : edad})
+
+    }
+
+    addHobby(hobby) {
+      // El método 'addHobby' recibe un string 'hobby' y debe agregarlo al arreglo de hobbies de la persona.
+      // No debe retornar nada.
+
+      // Tu código aca:
+      this.hobbies.push(hobby);
+
+    }
+    getFriends() {
+      // El método 'getFriends' debe retornar un arreglo con sólo los nombres del arreglo de amigos
+      // de la persona.
+      // Ej:
+      // Suponiendo que la persona tiene estos amigos: [{nombre: 'martin', edad: 31},{nombre: 'toni', edad: 33}]
+      // persona.getFriends() debería devolver ['martin', 'toni']
+
+      // Tu código aca:
+
+return this.amigos.map(item => item.nombre)
+
+}
+
+    
+
+    getHobbies() {
+      // El método 'getHobbies' debe retornar un arreglo con los hobbies de la persona
+      // Ej:
+      // persona.getHobbies() debe devolver ['correr', 'dormir', 'nadar']
+
+      // Tu código aca:
+      return this.hobbies
+
+
+    }
+
+    getPromedioEdad() {
+      // El método 'getPromedioEdad' debe retornar el promedio de edad de los amigos de una persona
+      // Ej:
+      // Si la persona tuviera estos amigos:
+      // {
+      //   amigos: [{
+      //     nombre: 'toni',
+      //     edad: 33,
+      //   }, {
+      //     nombre: 'Emi',
+      //     edad: 25
+      //   }]
+      // }
+      // persona.getPromedioEdad() debería devolver 29 ya que (33 + 25) / 2 = 29
+
+      // Tu código aca:
+      var suma=0;
+
+for(let i=0; i<this.amigos.length;i++){
+  suma += this.amigos[i].edad;
+}
+return suma/this.amigos.length
+    }
+  };
+
+  return Persona;
+}
+
+// No modifiques nada debajo de esta linea //
+
+module.exports = crearClasePersona
