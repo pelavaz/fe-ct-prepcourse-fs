@@ -52,7 +52,7 @@ function dePalabrasAFrase(palabras) {
   // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'.
   // Tu código:
   var m = palabras.join(" ");
-  return m;
+  
 }
 
 function arrayContiene(array, elemento) {
