@@ -14,6 +14,7 @@ function suma(x, y) {
    // Tu código:
    return (x+y)
 }
+// susto pelos
 
 function resta(x, y) {
    // Retorna el resultado de la resta.
